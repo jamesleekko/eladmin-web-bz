@@ -1,13 +1,18 @@
 <template>
-  <div class="sidebar-logo-container" :class="{'collapse':collapse}">
+  <div class="sidebar-logo-container" :class="{ collapse: collapse }">
     <transition name="sidebarLogoFade">
-      <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo">
-        <h1 v-else class="sidebar-title">{{ title }} </h1>
+      <router-link
+        v-if="collapse"
+        key="collapse"
+        class="sidebar-logo-link"
+        to="/"
+      >
+        <!-- <img v-if="logo" :src="logo" class="sidebar-logo"> -->
+        <h1 class="sidebar-title">{{ title }}</h1>
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo">
-        <h1 class="sidebar-title">{{ title }} </h1>
+        <!-- <img v-if="logo" :src="logo" class="sidebar-logo"> -->
+        <h1 class="sidebar-title">{{ title }}</h1>
       </router-link>
     </transition>
   </div>
@@ -15,6 +20,7 @@
 
 <script>
 import Logo from '@/assets/images/logo.png'
+
 export default {
   name: 'SidebarLogo',
   props: {
@@ -25,7 +31,7 @@ export default {
   },
   data() {
     return {
-      title: 'ELADMIN-后台管理',
+      title: '众搏-后台管理',
       logo: Logo
     }
   }
@@ -47,7 +53,8 @@ export default {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  text-align: center;
+  text-align: left;
+  padding-left: 16px;
   overflow: hidden;
 
   & .sidebar-logo-link {
